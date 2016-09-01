@@ -17,7 +17,6 @@ app.controller('controlAlta', function($scope, $http) {
   $scope.persona.apellido= "natalia" ;
   $scope.persona.foto="sinfoto";
 
-
   $scope.Guardar=function(){
 
 
@@ -44,17 +43,27 @@ app.controller('controlAlta', function($scope, $http) {
 app.controller('controlGrilla', function($scope, $http) {
   	$scope.DatoTest="**grilla**";
  	
- /*	$http.get('PHP/nexo.php', { params: {accion :"traer"}})
+ 	$http.get('PHP/nexo.php', { params: {accion :"traer"}})
  	.then(function(respuesta) {     	
 
-      	 $scope.ListadoPersonas = respuesta.data.listado;
+      	 $scope.listado_de_datos = respuesta.data.listado;
       	 console.log(respuesta.data);
 
     },function errorCallback(response) {
-     		 $scope.ListadoPersonas= [];
+     		 $scope.listado_de_datos= [];
      		console.log( response);
      		
- 	 });*/
+ 	 });
+/*
+  $http.get('http://www.mocky.io/v2/57c8229b120000fc03e76997').then(function(r){
+
+    $scope.listado_de_datos = r.data
+
+  }, function(r){
+
+    $scope.listado_de_datos = [];
+
+  });*/
 
 
 

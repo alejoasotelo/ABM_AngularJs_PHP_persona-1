@@ -1,12 +1,12 @@
 <html>
 <head>
 	<title>ABM angular PHP</title>
-	  
-		<!--?php require_once"partes/referencias.php" ;/**/?-->
-		<!--final de Estilos-->    
 
-      <!--script type="text/javascript" src="./bower_components/jquery/dist/jquery.js"></script-->
-       	<meta charset="UTF-8">
+	<!--?php require_once"partes/referencias.php" ;/**/?-->
+	<!--final de Estilos-->    
+
+	<!--script type="text/javascript" src="./bower_components/jquery/dist/jquery.js"></script-->
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" href="http://www.octavio.com.ar/favicon.ico">
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -15,69 +15,125 @@
 
 
 	<script SRC="bower_components/angular/angular.min.js" TYPE="text/javascript"></script>
- 	<script SRC="js/app.js" TYPE="text/javascript"></script>
+	<script SRC="js/app.js" TYPE="text/javascript"></script>
 </head>
 <body ng-app="ABMangularPHP" ng-controller="controlAlta">
 	<!--?php		
 		require_once"partes/barraDeMenu.php";
-	 ?-->
+		?-->
 
- 
-              <ul class="nav nav-tabs">
-		         <li  class="btn btn-info animated bounceInLeft" >
-		         	<a href="index.html">
-		         		 <span class="glyphicon glyphicon-list-alt">&nbsp;</span>
-		         		 Inicio
-		         	</a>
-		         </li>
-		         <li class="btn btn-info animated bounceInLeft" >
-		         	<a href="formAlta.html">
-		         		<span class="glyphicon glyphicon-plus-sign">&nbsp;</span>
-		         		Alta
-		         	</a>
-		         </li>
-		         <li  class="btn btn-info animated bounceInLeft" >
-		         	<a href="formGrilla.html"> 
-		         		<span class="glyphicon glyphicon-th" >&nbsp;</span>
-		         			Grilla</a>
-		         		</li>
-		        	<span id="tituloBarra"  class="animated bounceInRight">{{DatoTest}}ABM - PHP - Angular Versión 1.0.1 &nbsp;&nbsp;&nbsp;</span>
-      </ul>
-		
 
-	<div class="container">
-		<div class="page-header">
-			<center> <h1>Datos {{DatoTest}}</h1>   </center>     
-		</div>
-		<div class="CajaInicio animated bounceInRight">
-			<h1> <!--?php echo $titulo; ?-->titulo </h1>
+		<ul class="nav nav-tabs">
+			<li  class="btn btn-info animated bounceInLeft" >
+				<a href="index.html">
+					<span class="glyphicon glyphicon-list-alt">&nbsp;</span>
+					Inicio
+				</a>
+			</li>
+			<li class="btn btn-info animated bounceInLeft" >
+				<a href="formAlta.html">
+					<span class="glyphicon glyphicon-plus-sign">&nbsp;</span>
+					Alta
+				</a>
+			</li>
+			<li  class="btn btn-info animated bounceInLeft" >
+				<a href="formGrilla.html"> 
+					<span class="glyphicon glyphicon-th" >&nbsp;</span>
+					Grilla</a>
+				</li>
+				<span id="tituloBarra"  class="animated bounceInRight">{{DatoTest}}ABM - PHP - Angular Versión 1.0.1 &nbsp;&nbsp;&nbsp;</span>
+			</ul>
 
-			<form id="FormIngreso"  enctype="multipart/form-data" >
-				<input type="text" name="apellido" ng-model="persona.apellido" placeholder="ingrese apellido" value="" />
-				<span id="lblApellido" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">*
-				</span>
-				<input type="text" name="nombre" ng-model="persona.nombre" placeholder="ingrese nombre" value="" /> <span id="lblNombre" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">*</span>
-				<input type="text" name="dni" ng-model="persona.dni" placeholder="ingrese dni" value=""     /> 
-				<span id="lblDni" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">*</span>
-				<p style='color: black;'>*El DNI no se puede modificar.</p> ": "" ; ?>
-				
-				<input type="hidden" name="idOculto" id="id" value="" />
+
+			<div class="container">
+				<div class="page-header">
+					<center> <h1>Datos {{DatoTest}}</h1>   </center>     
+				</div>
+				<div class="CajaInicio animated bounceInRight">
+					<h1> <!--?php echo $titulo; ?-->titulo </h1>
+
+					<form name="FormIngreso"  enctype="multipart/form-data"  novalidate>
+
+						<label for="apellido">Apellido   -- {{FormIngreso.$invalid}}</label>
+						<input type="text" name="apellido" ng-model="persona.apellido" placeholder="ingrese apellido" value=""   />
+
+						<label for="nombre">Nombre</label>
+						<input type="text" name="nombre" ng-model="persona.nombre" placeholder="ingrese nombre" value="" /> <span ng-show="">*</span>
+
+						<label for="edad">Edad</label>
+						<input type="number" name="edad" ng-model="persona.edad" placeholder="ingrese edad" value="" /> <span id="lblEdad" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">*</span>
+
+						<label for="sexo">Sexo:</label>
+						<ul>
+							<li><label for="sexo_m">Masculino</label> <input type="radio" id="sexo_m" name="sexo" value="masculino"/></li>
+							<li><label for="sexo_f">Femenino</label> <input type="radio" id="" name="sexo" value="femenino"/></li>
+						</ul>
+
+						<label for="dni">DNI</label>
+						<input type="text" name="number" ng-model="persona.dni" placeholder="ingrese su dni" value=""     /> 
+
+						<label for="email">Email</label>
+						<input type="email" name="email" ng-model="persona.email" placeholder="ingrese su email" value="" required    /> 
+
+						<label for="estado_civil">Estado civil</label>
+						<select name="estado_civil">
+							<option value=""></option>
+							<option value="casado">Casado</option>
+							<option value="viudo">Viudo</option>
+							<option value="separado">Separado</option>
+						</select>
+
+						<label for="fecha_de_nacimiento">Fecha de nacimiento</label>
+						<input type="date" name="fecha_de_nacimiento" ng-model="persona.fecha_de_nacimiento" placeholder="ingrese fecha de nacimiento" value="" />
+
+						<label for="clave">Clave</label>
+						<input type="password" name="clave" ng-model="persona.clave" placeholder="ingrese clave" value="" /> 
+
+						<label for="copia_de_clave">Copia clave</label>
+						<input type="password" name="clave" ng-model="persona.copia_de_clave" placeholder="ingrese su clave nuevamente" value="" />
+
+						<label for="lenguaje_de_programacion">Lenguajes de programacion</label>
+						<ul>
+							<li>
+								<label for="lenguaje_de_programacion_c">C</label>
+								<input type="checkbox" id="lenguaje_de_programacion_c" name="lenguaje_de_programacion[]" value="c"/>
+							</li>
+							<li>
+								<label for="lenguaje_de_programacion_csharp">C#</label>
+								<input type="checkbox" id="lenguaje_de_programacion_csharp" name="lenguaje_de_programacion[]" value="c#"/>
+							</li>
+							<li>
+								<label for="lenguaje_de_programacion_javascript">Javascript</label>
+								<input type="checkbox" id="lenguaje_de_programacion_javascript" name="lenguaje_de_programacion[]" value="javascript"/>
+							</li>
+							<li>
+								<label for="lenguaje_de_programacion_php">PHP</label>
+								<input type="checkbox" id="lenguaje_de_programacion_php" name="lenguaje_de_programacion[]" value="php"/>
+							</li>
+							<li>
+								<label for="lenguaje_de_programacion_vb">Visual Basic<label>
+									<input type="checkbox" id="lenguaje_de_programacion_vb" name="lenguaje_de_programacion[]" value="vb"/>
+								</li>
+							</ul>
+
+							<input type="hidden" name="idOculto" id="id" value="" />
 				<!--
 				<input type="file" name="foto" />
 
 
 				<img  src="fotos/pordefecto.png" class="fotoform" id="foto"/>
 				<p style="  color: black;">*La foto se actualiza al guardar.</p>
-				-->
+			-->
+			<span ng-if="FormIngreso.$invalid">Faltan datos requeridos</span>
+			
+			<a class="btn btn-info " name="guardar" ng-click="Guardar()" ng-disabled="FormIngreso.$invalid"><span class="glyphicon glyphicon-save">&nbsp;</span>Guardar</a>
 
-				<a class="btn btn-info " name="guardar" ng-click="Guardar()" ><span class="glyphicon glyphicon-save">&nbsp;</span>Guardar</a>
-					
-				<input type="hidden" value="" id="idParaModificar" name="agregar" />
-				<input type="hidden" value="" id="hdnAgregar" name="agregar" />
-				</div>
+			<input type="hidden" value="" id="idParaModificar" name="agregar" />
+			<input type="hidden" value="" id="hdnAgregar" name="agregar" />
+		</div>
 
-			</form>
-	</div>
-	</div>
+	</form>
+</div>
+</div>
 </body>
 </html>
