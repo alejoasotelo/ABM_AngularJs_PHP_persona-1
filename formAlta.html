@@ -52,28 +52,35 @@
 				<div class="CajaInicio animated bounceInRight">
 					<h1> <!--?php echo $titulo; ?-->titulo </h1>
 
-					<form name="FormIngreso"  enctype="multipart/form-data"  novalidate>
+					<form name="FormIngreso" enctype="multipart/form-data" novalidate>
 
 						<label for="apellido">Apellido   -- {{FormIngreso.$invalid}}</label>
-						<input type="text" name="apellido" ng-model="persona.apellido" placeholder="ingrese apellido" value=""   />
+						<input type="text" name="apellido" ng-model="persona.apellido" placeholder="ingrese apellido" value=""   required/>
+						<span ng-show="FormIngreso.apellido.$invalid">Campo invalido</span>
+						<br><br>
 
 						<label for="nombre">Nombre</label>
-						<input type="text" name="nombre" ng-model="persona.nombre" placeholder="ingrese nombre" value="" /> <span ng-show="">*</span>
+						<input type="text" name="nombre" ng-model="persona.nombre" placeholder="ingrese nombre" value="" required/>
+						<span ng-show="FormIngreso.nombre.$invalid">Campo invalido</span>
+						<span ng-show="FormIngreso.nombre.$pristine">Campo aun sin modificar</span>
+						<br><br>
 
 						<label for="edad">Edad</label>
-						<input type="number" name="edad" ng-model="persona.edad" placeholder="ingrese edad" value="" /> <span id="lblEdad" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">*</span>
+						<input type="number" name="edad" ng-model="persona.edad" placeholder="ingrese edad" value="" required/>
+						<span ng-show="FormIngreso.edad.$invalid">Campo invalido</span>
+						<br><br>
 
 						<label for="sexo">Sexo:</label>
 						<ul>
-							<li><label for="sexo_m">Masculino</label> <input type="radio" id="sexo_m" name="sexo" value="masculino"/></li>
-							<li><label for="sexo_f">Femenino</label> <input type="radio" id="" name="sexo" value="femenino"/></li>
+							<li><label for="sexo_m">Masculino</label> <input type="radio" id="sexo_m" name="sexo" ng-model="persona.sexo" value="masculino"/></li>
+							<li><label for="sexo_f">Femenino</label> <input type="radio" id="" name="sexo" ng-model="persona.sexo" value="femenino"/></li>
 						</ul>
 
 						<label for="dni">DNI</label>
-						<input type="text" name="number" ng-model="persona.dni" placeholder="ingrese su dni" value=""     /> 
+						<input type="text" name="number" ng-model="persona.dni" placeholder="ingrese su dni" value="" required/> 
 
 						<label for="email">Email</label>
-						<input type="email" name="email" ng-model="persona.email" placeholder="ingrese su email" value="" required    /> 
+						<input type="email" name="email" ng-model="persona.email" placeholder="ingrese su email" value="" required/> 
 
 						<label for="estado_civil">Estado civil</label>
 						<select name="estado_civil">
@@ -96,23 +103,23 @@
 						<ul>
 							<li>
 								<label for="lenguaje_de_programacion_c">C</label>
-								<input type="checkbox" id="lenguaje_de_programacion_c" name="lenguaje_de_programacion[]" value="c"/>
+								<input type="checkbox" id="lenguaje_de_programacion_c" name="lenguaje_de_programacion[]" ng-model="persona.lenguaje_de_programacion" value="c"/>
 							</li>
 							<li>
 								<label for="lenguaje_de_programacion_csharp">C#</label>
-								<input type="checkbox" id="lenguaje_de_programacion_csharp" name="lenguaje_de_programacion[]" value="c#"/>
+								<input type="checkbox" id="lenguaje_de_programacion_csharp" name="lenguaje_de_programacion[]" ng-model="persona.lenguaje_de_programacion" value="c#"/>
 							</li>
 							<li>
 								<label for="lenguaje_de_programacion_javascript">Javascript</label>
-								<input type="checkbox" id="lenguaje_de_programacion_javascript" name="lenguaje_de_programacion[]" value="javascript"/>
+								<input type="checkbox" id="lenguaje_de_programacion_javascript" name="lenguaje_de_programacion[]" ng-model="persona.lenguaje_de_programacion" value="javascript"/>
 							</li>
 							<li>
 								<label for="lenguaje_de_programacion_php">PHP</label>
-								<input type="checkbox" id="lenguaje_de_programacion_php" name="lenguaje_de_programacion[]" value="php"/>
+								<input type="checkbox" id="lenguaje_de_programacion_php" name="lenguaje_de_programacion[]" ng-model="persona.lenguaje_de_programacion" value="php"/>
 							</li>
 							<li>
 								<label for="lenguaje_de_programacion_vb">Visual Basic<label>
-									<input type="checkbox" id="lenguaje_de_programacion_vb" name="lenguaje_de_programacion[]" value="vb"/>
+									<input type="checkbox" id="lenguaje_de_programacion_vb" name="lenguaje_de_programacion[]" ng-model="persona.lenguaje_de_programacion" value="vb"/>
 								</li>
 							</ul>
 
