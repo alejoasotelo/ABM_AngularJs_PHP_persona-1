@@ -23,6 +23,7 @@
   "dependencies": {
     "angular": "^1.5.8",
     "bootstrap": "^3.3.7",
-    "estilos": "http://github.com/octaviovillegas/estilos.git"
+    "estilos": "http://github.com/octaviovillegas/estilos.git",
+    "angular-ui-router": "^0.3.1"
   }
 }

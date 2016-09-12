@@ -42,6 +42,49 @@ miAplicacion.config(function($stateProvider, $urlRouterProvider){
 		}
 	})
 
+	// States Login & Register
+	.state('login_register', {
+		url: '/login_register',
+		abstract: true,
+		templateUrl: 'abstractLoginRegister.html',
+		controller: 'ControlLoginRegister'
+	})
+	.state('login_register.login', {
+		url: '/login',
+		views: {
+			'contenido': {
+				templateUrl: 'login.html',
+				controller: 'ControlLoginRegisterLogin'
+			}
+		}
+	})
+	.state('login_register.register', {
+		url: '/register',
+		views: {
+			'contenido': {
+				templateUrl: 'register.html',
+				controller: 'ControlLoginRegisterRegister'
+			}
+		}
+	})
+
+	// States Juegos
+	.state('juegos', {
+		url: '/juegos',
+		abstract: true,
+		templateUrl: 'abstractJuegos.html',
+		controller: 'ControlJuegos'
+	})
+	.state('juegos.grilla', {
+		url: '/grilla',
+		views: {
+			'contenido' : {
+				templateUrl: 'juegosGrilla.html',
+				controller: 'ControlJuegosGrilla'
+			}
+		}
+	})
+
 	$urlRouterProvider.otherwise('/inicio');
 
 });
@@ -71,3 +114,13 @@ miAplicacion.controller('ControlPersonaAlta', function($scope){
 miAplicacion.controller('ControlPersonaGrilla', function($scope){
 
 });
+
+miAplicacion.controller('ControlLoginRegister', function($scope){});
+
+miAplicacion.controller('ControlLoginRegisterLogin', function($scope){});
+
+miAplicacion.controller('ControlLoginRegisterRegister', function($scope){});
+
+miAplicacion.controller('ControlJuegos', function($scope){});
+
+miAplicacion.controller('ControlJuegosGrilla', function($scope){});
