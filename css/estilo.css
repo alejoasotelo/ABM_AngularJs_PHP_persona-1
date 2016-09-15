@@ -327,3 +327,6 @@ form ul li{
 form ul li label{
   font-weight: normal;
 }
+
+input.ng-valid{background-color: white;}
+input.ng-invalid:not(.ng-pristine){border-color: red;}

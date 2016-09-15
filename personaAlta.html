@@ -7,21 +7,25 @@
 
 		<form name="FormIngreso" enctype="multipart/form-data" novalidate>
 
-			<label for="apellido">Apellido   -- {{FormIngreso.$invalid}}</label>
+			<label for="apellido">Apellido</label>
 			<input type="text" name="apellido" ng-model="persona.apellido" placeholder="ingrese apellido" value=""   required/>
-			<span ng-show="FormIngreso.apellido.$invalid">Campo invalido</span>
+			<span ng-show="!FormIngreso.apellido.$pristine && FormIngreso.apellido.$invalid">Campo invalido</span>
 			<br><br>
 
 			<label for="nombre">Nombre</label>
 			<input type="text" name="nombre" ng-model="persona.nombre" placeholder="ingrese nombre" value="" required/>
-			<span ng-show="FormIngreso.nombre.$invalid">Campo invalido</span>
-			<span ng-show="FormIngreso.nombre.$pristine">Campo aun sin modificar</span>
+			<span ng-show="!FormIngreso.nombre.$pristine && FormIngreso.nombre.$invalid">Campo invalido</span>
 			<br><br>
 
 			<label for="edad">Edad</label>
 			<input type="number" name="edad" ng-model="persona.edad" placeholder="ingrese edad" value="" required/>
-			<span ng-show="FormIngreso.edad.$invalid">Campo invalido</span>
+			<span ng-show="!FormIngreso.edad.$pristine && FormIngreso.edad.$invalid">Campo invalido</span>
 			<br><br>
+
+			<label for="imagen">Imagen</label>
+			<input type="file" nv-file-select uploader="uploader" class="btn btn-primary" required/>
+			<br/>
+			<br/>
 
 			<label for="sexo">Sexo:</label>
 			<ul>
@@ -86,7 +90,7 @@
 			-->
 			<span ng-if="FormIngreso.$invalid">Faltan datos requeridos</span>
 			
-			<a class="btn btn-info " name="guardar" ng-click="Guardar()" ng-disabled="FormIngreso.$invalid"><span class="glyphicon glyphicon-save">&nbsp;</span>Guardar</a>
+			<a class="btn btn-info " name="guardar" ng-click="Guardar()" ng-if="!FormIngreso.$invalid"><span class="glyphicon glyphicon-save">&nbsp;</span>Guardar</a>
 
 			<input type="hidden" value="" id="idParaModificar" name="agregar" />
 			<input type="hidden" value="" id="hdnAgregar" name="agregar" />
