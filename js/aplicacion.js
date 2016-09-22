@@ -1,6 +1,11 @@
-var miAplicacion = angular.module('Aplicacion', ['ui.router', 'angularFileUpload']);
+var miAplicacion = angular.module('Aplicacion', ['ui.router', 'angularFileUpload', 'satellizer']);
 
-miAplicacion.config(function($stateProvider, $urlRouterProvider){
+miAplicacion.config(function($stateProvider, $urlRouterProvider, $authProvider){
+
+	$authProvider.loginUrl = 'ABM_AngularJs_PHP_persona-1/PHP/auth.php';
+	$authProvider.tokenName = 'mitoken';
+	$authProvider.tokenPrefix = 'Aplicacion';
+	$authProvider.authHeader = 'data';
 
 	$stateProvider
 	.state('inicio', {
@@ -89,7 +94,14 @@ miAplicacion.config(function($stateProvider, $urlRouterProvider){
 
 });
 
-miAplicacion.controller('ControlInicio', function($scope){
+miAplicacion.controller('ControlInicio', function($scope, $auth, $state){
+
+	$scope.isAuthenticated = $auth.isAuthenticated();
+
+	if (!$scope.isAuthenticated) {
+		$state.go('login_register.login');
+
+	}
 
 });
 
@@ -134,7 +146,40 @@ miAplicacion.controller('ControlPersonaGrilla', function($scope){
 
 miAplicacion.controller('ControlLoginRegister', function($scope){});
 
-miAplicacion.controller('ControlLoginRegisterLogin', function($scope){});
+miAplicacion.controller('ControlLoginRegisterLogin', function($scope, $auth){
+
+	$scope.isAuthenticated = $auth.isAuthenticated();
+
+	if ($scope.isAuthenticated) {
+		console.log('Sesion iniciada!');
+		console.info("Info login: ",$auth.isAuthenticated(),$auth.getPayload());
+	} else {
+		console.log('NOP');
+	}
+
+	$scope.iniciarSesion = function() {
+
+		$auth.login($scope.user).then(function(response) {
+
+    		// Redirect user here after a successful log in.
+    		$scope.isAuthenticated = $auth.isAuthenticated();
+    		
+    		if ($scope.isAuthenticated) {
+    			console.log('Sesion iniciada!');
+    			console.info("Info login: ", $scope.isAuthenticated);
+    		} else {
+    			console.log('NOP');
+    		}
+
+    		console.log(response);
+    	}).catch(function(response) {
+		    // Handle errors here, such as displaying a notification
+		    // for invalid email and/or password.
+		    console.error(response);
+		});
+    }
+
+});
 
 miAplicacion.controller('ControlLoginRegisterRegister', function($scope){});
 
