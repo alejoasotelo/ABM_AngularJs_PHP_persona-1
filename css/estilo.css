@@ -330,3 +330,13 @@ form ul li label{
 
 input.ng-valid{background-color: white;}
 input.ng-invalid:not(.ng-pristine){border-color: red;}
+
+form[name=loginForm] .alert{
+  font-weight: normal;
+  color: orange;
+  padding: 0px;
+  margin: 0px;
+}
+
+
+.m-b{margin-bottom: 16px;}

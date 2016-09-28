@@ -20,10 +20,14 @@ $token = array(
  * for a list of spec-compliant algorithms.
  */
 $request_body = file_get_contents('php://input');
-$user = json_decode($request_body);
+$user_login = json_decode($request_body);
 
-if(Usuario::validarUsuario($user->username, $user->password))
+$ret = array();
+
+if(Usuario::validarUsuario($user_login->username, $user_login->password))
 {
+	$user = Usuario::getUsuarioByUsername($user_login->username);
+
 	$key = "1234";
 	$token["iat"] = time() ;
 	$token["exp"] = time() + 20;
@@ -34,10 +38,10 @@ if(Usuario::validarUsuario($user->username, $user->password))
 
 	$jwt = JWT::encode($token, $key);
 
-	$array["mitoken"] = $jwt;
+	$ret["mitoken"] = $jwt;
 } else {
-	$array["mitoken"] = false;
+	$ret["mitoken"] = false;
 }
 
-echo json_encode($array);
+echo json_encode($ret);
 ?>

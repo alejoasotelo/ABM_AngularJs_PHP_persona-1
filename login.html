@@ -3,39 +3,52 @@
 	<div class="container-fluid">
 
 		<div ng-show="isAuthenticated">
-			<div class="col-md-6">
-				Ya estas logueado papa!!!
+			<div class="col-md-4 col-md-offset-4 col-xs-12">
+				<input type="button" value="Cerrar sesión" ng-click="cerrarSesion();" class="form-control"/>
 			</div>
 		</div>
 
-		<form name="loginForm" class="col-md-4 col-md-offset-4" ng-show="!isAuthenticated">
+		<form name="loginForm" class="col-md-4 col-md-offset-4 col-xs-12 form" ng-show="!isAuthenticated">
+
+			<div class="mensajes" ng-if="mensajes.length > 0">
+				<p>{{mensajes}}</p>
+			</div>
 
 
-			<div class="col-md-6 col-md-offset-3">
+			<div class="m-b">
 
 				<label for="username">Nombre de usuario</label>
-
 				<input type="text" name="username" placeholder="pepito1" ng-model="user.username" class="form-control" required/>
-
+				
 				<span class="alert" ng-if="!loginForm.username.$pristine && loginForm.username.$invalid">Campo invalido</span>
 
+				<br/>
+
 			</div>
 
-			<div class="col-md-6 col-md-offset-3">
+			<div class="m-b">
 
 				<label for="password">Contraseña</label>
-
 				<input type="password" name="password" ng-model="user.password" class="form-control" required/>
-
+				
 				<span class="alert" ng-if="!loginForm.password.$pristine && loginForm.password.$invalid">Campo invalido</span>
+
+				<br/>
 
 			</div>
 
-			<br>
-
-			<div class="col-md-6 col-md-offset-3">
+			<div class="m-b">
 
 				<input type="button" ng-disabled="loginForm.$invalid" value="Iniciar sesión" ng-click="iniciarSesion();" class="form-control"/>
+
+			</div>
+
+			<div>
+				<p class="text-center">o</p>
+
+				<button ng-click="iniciarSesionGithub();" class="form-control" style="position: relative;">
+					<svg style="position: absolute;left: 4px;height: 22px;" aria-hidden="true" class="octicon octicon-mark-github" height="28" version="1.1" viewBox="0 0 16 16" width="28"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg> Iniciar sesión con Github
+				</button>
 
 			</div>
 
