@@ -1,5 +1,5 @@
 <?php
-class Auth{
+class AuthGithub{
 
 	// Devuelvo un objeto con la respuesta el access_token
 	public static function getAccessTokenFromCode($code) {

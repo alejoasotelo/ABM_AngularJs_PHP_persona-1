@@ -11,10 +11,10 @@ $request = json_decode($request_body);
 if (isset($request->code)) {
 	
 	// Obtengo el access token a partir del code.
-	$auth = Auth::getAccessTokenFromCode($request->code);
+	$auth = AuthGithub::getAccessTokenFromCode($request->code);
 
 	// Obtengo la informacion del usuario.
-	$github_user = Auth::getUserInfo($auth->access_token);
+	$github_user = AuthGithub::getUserInfo($auth->access_token);
 
 	$existeUsername = Usuario::existeUsuario($github_user->login);
 	$existeIdGithub = Usuario::existeUsuarioGithub($github_user->id);
