@@ -97,6 +97,42 @@ miAplicacion.config(function($stateProvider, $urlRouterProvider, $authProvider){
 			}
 		}
 	})
+	.state('juegos.adivinaElNumero1', {
+		url: '/adivinaElNumero1',
+		views: {
+			'contenido' : {
+				templateUrl: 'juegos/AdivinaElNumero1.html',
+				controller: 'ControlJuegosAdivinaElNumero1'
+			}
+		}
+	})
+	.state('juegos.adivinaElNumero2', {
+		url: '/adivinaElNumero2',
+		views: {
+			'contenido' : {
+				templateUrl: 'juegos/AdivinaElNumero2.html',
+				controller: 'ControlJuegosAdivinaElNumero2'
+			}
+		}
+	})
+	.state('juegos.agilidadAritmetica1', {
+		url: '/agilidadAritmetica1',
+		views: {
+			'contenido' : {
+				templateUrl: 'juegos/AgilidadAritmetica1.html',
+				controller: 'ControlJuegosAgilidadAritmetica1'
+			}
+		}
+	})
+	.state('juegos.agilidadAritmetica2', {
+		url: '/agilidadAritmetica2',
+		views: {
+			'contenido' : {
+				templateUrl: 'juegos/AgilidadAritmetica2.html',
+				controller: 'ControlJuegosAgilidadAritmetica2'
+			}
+		}
+	})
 
 	$urlRouterProvider.otherwise('/inicio');
 
@@ -227,6 +263,9 @@ miAplicacion.controller('ControlLoginRegisterLogin', function($scope, $auth) {
 
 miAplicacion.controller('ControlLoginRegisterRegister', function($scope){});
 
-miAplicacion.controller('ControlJuegos', function($scope){});
+miAplicacion.controller('ControlJuegos', function($scope){
+});
 
-miAplicacion.controller('ControlJuegosGrilla', function($scope){});
+miAplicacion.controller('ControlJuegosGrilla', function($scope) {
+
+});

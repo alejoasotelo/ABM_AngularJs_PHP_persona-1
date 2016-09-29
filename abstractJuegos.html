@@ -1,0 +1,24 @@
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	<ul class="nav nav-tabs">
+		<li  class="btn btn-info animated bounceInLeft" >
+			<a ui-sref="inicio()">
+				<span class="glyphicon glyphicon-list-alt">&nbsp;</span>
+				Inicio 
+			</a>
+		</li>
+		<li class="dropdown btn btn-info animated bounceInLeft">
+			<button class="dropdown-toggle" type="button" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="dropdownMenu1" style="border: none;background: none;color: #337ab7;line-height: 42px;">Juegos <span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+				<li><a ui-sref="juegos.adivinaElNumero1()">Adivina el numero 1</a></li>
+				<li><a ui-sref="juegos.adivinaElNumero2()">Adivina el numero 2</a></li>
+				<li><a ui-sref="juegos.agilidadAritmetica1()">Agilidad aritmetica 1</a></li>
+				<li><a ui-sref="juegos.agilidadAritmetica2()">Agilidad aritmetica 2</a></li>
+			</ul>
+		</li>
+		<span id="tituloBarra" class="animated bounceInRight">Juegos</span>
+	</ul>
+</div>
+
+<div ui-view name="contenido">
+</div>

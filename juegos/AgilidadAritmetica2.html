@@ -1,0 +1,23 @@
+<div ng-init="Comenzar()">
+	<div class="CajaUno animated bounceInDown">
+		<input type="text" readonly id="PrimerNumero" ng-model="juego.numeros.uno">
+		<input type="text" readonly id="Operador" ng-model="juego.numeros.operador">
+		<input type="text" readonly id="SegundoNumero" ng-model="juego.numeros.dos">
+		<form id="FormIngreso">
+			<input type="text"  id="Respuesta" placeholder="Ingrese la respuesta" ng-model="juego.respuesta_usuario">
+			<center>
+				<img src="imagenes/interrogacion.jpg" >
+			</center>
+		</form>
+		<button  class="MiBotonUTN" ng-click="Responder()" >Aceptar</button>
+	</div>
+	<div class="CajaUno animated bounceInLeft">
+	</div>
+
+	<div class="CajaEnunciado animated bounceInLeft">
+		<h2>Enunciado:</h2>
+		<h3>
+			Además de lo anterior, ahora se agregara un temporizador que a los 4(cuatro) segundos dará por terminado el juego y se verificará si el resultado es el correcto.
+		</h3>
+	</div>
+</div>

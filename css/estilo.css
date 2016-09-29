@@ -100,7 +100,7 @@ caption {
   border: dashed;
   position: fixed;
   background: royalblue;
-  top: 0px;
+  top: 66px;
   width: 400px;
   margin: 0;
   padding: 10px;
@@ -110,6 +110,11 @@ caption {
   -webkit-transition: opacity 1s;
   border-radius: 15px;
   -webkit-border-radius: 15px;
+  z-index: -1;
+}
+
+.CajaEnunciado h3{
+  font-size: 16px;
 }
 
 .CajaInicio h1{

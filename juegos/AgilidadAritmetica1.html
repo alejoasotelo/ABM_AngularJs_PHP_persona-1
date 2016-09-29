@@ -1,0 +1,25 @@
+<div ng-init="comenzar()">
+	<div class="CajaUno animated bounceInDown">
+		<input type="text" readonly id="PrimerNumero" ng-model="juego.numeros.uno">
+		<input type="text" readonly id="Operador" ng-model="juego.numeros.operador">
+		<input type="text" readonly id="SegundoNumero" ng-model="juego.numeros.dos">
+		<form id="FormIngreso">
+			<input type="text"  id="Respuesta" placeholder="Ingrese la respuesta" ng-model="juego.respuesta_usuario">
+			<center>
+				<img src="imagenes/interrogacion.jpg" >
+			</center>
+
+		</form>
+		<button  class="MiBotonUTN" ng-click="responder()" >Aceptar</button>
+	</div>
+	<div class="CajaUno animated bounceInLeft">
+	</div>
+
+	<div class="CajaEnunciado animated bounceInLeft">
+		<h2>Enunciado:</h2>
+		<h3>
+			Debemos mostrar dos números Random  del 1 al 10 y una de las cuatro operaciones básicas (suma, resta, división o multiplicación) para realizar entre estos dos números, estas operaciones también serán Random. En el cuadro de texto resultado el jugador debe ingresar el resultado de la operación y presionar el botón  Aceptar.
+			se debe informar si el resultado es el correcto o no.
+		</h3>
+	</div>
+</div>
