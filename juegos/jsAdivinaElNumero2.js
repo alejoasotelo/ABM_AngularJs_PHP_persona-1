@@ -1,6 +1,12 @@
 angular.module('Aplicacion')
 
-.controller('ControlJuegosAdivinaElNumero2', function($scope){
+.controller('ControlJuegosAdivinaElNumero2', function($scope, $auth, $state){
+
+	$scope.isAuthenticated = $auth.isAuthenticated();
+
+	if (!$scope.isAuthenticated) {
+		$state.go('login_register.login');
+	}
 
 	$scope.juego = {};
 

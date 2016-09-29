@@ -32,7 +32,7 @@ if (isset($request->code)) {
 
 		$key = '1234';
 		$token['iat'] = time() ;
-		$token['exp'] = time() + 20;
+		$token['exp'] = time() + 60; // 1 minuto
 
 		$token['username'] = $user->username;
 		$token['nombre'] = $user->nombre;

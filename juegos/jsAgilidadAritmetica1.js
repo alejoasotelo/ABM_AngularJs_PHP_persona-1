@@ -1,6 +1,12 @@
 angular.module('Aplicacion')
 
-.controller('ControlJuegosAgilidadAritmetica1', function($scope){
+.controller('ControlJuegosAgilidadAritmetica1', function($scope, $auth, $state){
+
+	$scope.isAuthenticated = $auth.isAuthenticated();
+
+	if (!$scope.isAuthenticated) {
+		$state.go('login_register.login');
+	}
 
 	var operaciones = ['+', '-', '*', '/'];
 

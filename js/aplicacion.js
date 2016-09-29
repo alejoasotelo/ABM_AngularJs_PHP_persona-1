@@ -266,6 +266,12 @@ miAplicacion.controller('ControlLoginRegisterRegister', function($scope){});
 miAplicacion.controller('ControlJuegos', function($scope){
 });
 
-miAplicacion.controller('ControlJuegosGrilla', function($scope) {
+miAplicacion.controller('ControlJuegosGrilla', function($scope, $auth, $state){
+
+	$scope.isAuthenticated = $auth.isAuthenticated();
+
+	if (!$scope.isAuthenticated) {
+		$state.go('login_register.login');
+	}
 
 });

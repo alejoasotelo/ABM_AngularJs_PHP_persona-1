@@ -30,7 +30,7 @@ if(Usuario::validarUsuario($user_login->username, $user_login->password))
 
 	$key = "1234";
 	$token["iat"] = time() ;
-	$token["exp"] = time() + 20;
+	$token["exp"] = time() + 60;
 
 	$token["username"] = $user->username;
 	$token["nombre"] = $user->nombre;
